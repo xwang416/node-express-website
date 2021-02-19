@@ -1,0 +1,43 @@
+{
+  "name": "express-website",
+  "version": "1.0.0",
+  "description": "a node express ejs website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_local": "./scripts/start_local.sh"
+  },
+  "author": "Don Wang",
+  "license": "ISC",
+  "nodemonConfig": {
+    "watch": [
+      "views"
+    ],
+    "ext": "ejs,js,json",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "delay": "1000"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-compress": "1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-webpack": "^4.0.2",
+    "webpack": "^5.1.3"
+  }
+}
