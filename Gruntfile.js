@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                     compress: false // not Minification
                 },
                 files: {
-                    "./public/css/styles.min.css": ["./assets/less/styles.less"]
+                    "./public/css/style.min.css": ["./assets/less/style.less"]
                 }
             },
             production: {
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     compress: true // not Minification
                 },
                 files: {
-                    "./public/css/styles.min.css": ["./assets/less/styles.less"]
+                    "./public/css/style.min.css": ["./assets/less/style.less"]
                 }
             }
         },
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             production: {
                 // Target-specific file lists and/or options go here.
                 files: {
-                    "./public/css/styles.min.css": "./public/css/styles.min.css"
+                    "./public/css/style.min.css": "./public/css/style.min.css"
                 }
             },
         },
@@ -69,19 +69,19 @@ module.exports = function(grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'givetree.zip'
+                    archive: 'artifact.tgz'
                 },
                 files: [{
                     expand: true,
                     cwd: '',
-                    src: ['**/*','!node_modules/**','!assets/**','!package-lock.json','!package.json','!Gruntfile.js', '!*.zip'],
+                    src: ['**/*','!node_modules/**','!assets/**','!Gruntfile.js', '!*.tgz', '!*.zip'],
                     dest: '/'
                 }]
             }
         },
 
         webpack: {
-            myconfig: () => ({
+            myconfig: {
                 mode: 'none',
                 entry: {
                     main: "./assets/js/index.js"
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
                     ]
                 }
                   
-            }),
+            },
         },
 
         jshint: {
@@ -173,6 +173,6 @@ module.exports = function(grunt) {
     grunt.registerTask('zip', ['compress']);
 
     // Prepare for deployment
-    grunt.registerTask('deploy', ['webpack:myconfig', 'less:production', 'autoprefixer', 'imagemin', 'copy:all', 'compress']);
+    grunt.registerTask('build', ['webpack:myconfig', 'less:production', 'autoprefixer', 'imagemin', 'copy:all', 'compress']);
 
 };
